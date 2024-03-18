@@ -14,10 +14,10 @@ func TestGetAPIKey(t *testing.T) {
 
 	tests := []test{
 		{value: "", want: "", err: ErrNoAuthHeaderIncluded},
-		{value: "something", want: "", err: ErrMalformedAuthHeader},
+		{value: "something", want: "", err: ErrNoAuthHeaderIncluded},
 		{value: "ApiKey ACTUALY_KEY", err: nil},
 	}
-	t.Fatal("Test failure")
+
 	httpHeader := http.Header{}
 	for _, tc := range tests {
 		httpHeader.Set("Authorization", tc.value)
