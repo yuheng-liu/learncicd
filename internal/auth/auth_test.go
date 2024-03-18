@@ -14,7 +14,7 @@ func TestGetAPIKey(t *testing.T) {
 
 	tests := []test{
 		{value: "", want: "", err: ErrNoAuthHeaderIncluded},
-		{value: "something", want: "", err: ErrNoAuthHeaderIncluded},
+		{value: "something", want: "", err: ErrMalformedAuthHeader},
 		{value: "ApiKey ACTUALY_KEY", err: nil},
 	}
 
